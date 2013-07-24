@@ -1,0 +1,31 @@
+{
+  "name": "Fluxt Services Status",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Esta extension permite verificar el estado de los servicios de FluxIT",
+  "homepage_url": "http://www.fluxit.com.ar",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "es",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "options_page": "src/options/index.html",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "Fluxt Services Status",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "notifications",
+    "tabs",
+    "*://192.168.100.143/*"
+  ],
+   "web_accessible_resources": [
+    "icons/fail.png"
+  ]
+}

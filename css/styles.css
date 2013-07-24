@@ -1,0 +1,96 @@
+body {
+	min-width: 400px;
+	min-height: 300px;
+
+	-ms-overflow-x: hidden;
+	overflow-x: hidden;
+	font-family: 'PT Sans Caption', sans-serif;
+	font-size: 0.9em;
+	margin: 0px;
+	padding: 0px;
+}
+
+.loading {
+	background: url('/icons/ajax-loader.gif') no-repeat center center;
+	display: block;
+	height: 300px;
+}
+
+.no-asociated-services{
+	position: absolute;
+	top: 45%;
+	text-align: center;
+	width: 100%;
+	font-size: 1.1em;
+}
+
+#service-list h3 {
+	border-bottom: 1px solid #ccc;
+	padding-left: 10px;
+	background: #e9edf0;
+	line-height: 30px;
+	margin: 0px 0px 10px 0px;
+	font-size: 1.1em;
+}
+
+.services-statuses {
+	list-style: none;
+	margin: 0px 0px 0px 5px;
+	padding: 0px;
+
+	-ms-overflow-y: auto;
+	overflow-y: auto;
+	height: 250px;
+}
+
+.services-statuses .service {
+	padding: 5px 0px 5px 5px;
+	vertical-align: middle;
+	cursor: pointer;
+	border-bottom: 1px dotted #d9d9d9;
+}
+ 
+ .services-statuses .service:hover{
+ 	background: rgb(248, 248, 248);
+ }
+
+.services-statuses .status {
+	display: inline-block;
+	width: 18px;
+	height: 16px;
+	vertical-align: middle;
+	margin-right: 5px;
+	background-position: left 0px;
+	background-repeat: no-repeat;
+}
+
+.services-statuses .ok {
+	background-image: url('/icons/ok.png');
+}
+
+.services-statuses .fail {
+	background-image: url('/icons/fail.png');
+}
+
+.services-statuses .down {
+	background-image: url('/icons/down.png');
+}
+
+.services-statuses .service-detail {
+	background: rgb(240, 240, 240);
+	border: 2px solid rgb(238, 235, 235);
+	padding: 5px;
+	margin-top: 7px;
+	margin-bottom: 10px;
+	font-size: .8em;
+	max-width: 350px;
+}
+
+.services-statuses .service ul {
+	padding: 4px 0px 4px 5px;
+	list-style: none;
+}
+
+.hidden {
+	display: none;
+}
