@@ -23,7 +23,8 @@
   "permissions": [
     "notifications",
     "tabs",
-    "*://192.168.100.143/*"
+    "http://*/*",
+    "https://*/*"
   ],
    "web_accessible_resources": [
     "icons/fail.png"
