@@ -64,11 +64,11 @@ body {
 	background-repeat: no-repeat;
 }
 
-.services-statuses .ok {
+.services-statuses .ok, .services-statuses .success {
 	background-image: url('/icons/ok.png');
 }
 
-.services-statuses .fail {
+.services-statuses .fail, .services-statuses .error, .services-statuses .failure {
 	background-image: url('/icons/fail.png');
 }
 

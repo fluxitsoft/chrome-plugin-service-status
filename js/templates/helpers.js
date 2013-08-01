@@ -18,6 +18,14 @@ Handlebars.getTemplate = function(name) {
     return Handlebars.templates[name];
 };
 
+function linkenize(link) {
+    if (link != '') {
+        link = (link.indexOf('://') == -1) ? 'http://' + link : link;
+    }
+      
+    return link;
+}
+
 Handlebars.registerHelper('toLowerCase', function(value) {
     if(value) {
         return new Handlebars.SafeString(value.toLowerCase());
@@ -28,15 +36,21 @@ Handlebars.registerHelper('toLowerCase', function(value) {
 
 Handlebars.registerHelper('detailedStatus', function(value) {
     if(value) {
-        var detailedStatus = "";
-        switch(value){
-            case 'OK' : detailedStatus = 'El servidor se encuentra activo y sin problemas';
+        var detailedStatus = "",
+            upperValue = value.toUpperCase();
+
+        switch(upperValue){
+            case 'OK' :
+            case 'SUCCESS' :
+                detailedStatus = 'El servidor se encuentra activo y sin problemas';
             break;
 
             case 'DOWN' : detailedStatus = 'El servidor se encuentra abajo debido a un mantenimiento programado';
             break;
 
-            case 'FAIL' : detailedStatus = 'El servidor se encuentra debido a una falla';
+            case 'ERROR' :
+            case 'FAILURE' :
+             detailedStatus = 'El servidor se encuentra caido debido a una falla';
             break;
             default: detailedStatus = "";
         }
@@ -53,7 +67,8 @@ Handlebars.registerHelper('constructResource', function(resource) {
         if(re_weburl.test(resource)){
            constructedResource = '<a href="' + resource + '" class="resource external_link" title="Abrir Recurso: ' + resource + '">' + resource + '</a>';    
         }else{
-            constructedResource = resource;
+            var linkedResource = linkenize(resource);
+            constructedResource = '<a href="' + linkedResource + '" class="resource external_link" title="Abrir Recurso: ' + linkedResource + '">' + linkedResource + '</a>';    
         }
         
         return new Handlebars.SafeString(constructedResource);

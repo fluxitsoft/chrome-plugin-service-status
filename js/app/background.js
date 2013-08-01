@@ -8,7 +8,7 @@
   "webkitNotifications.requestPermission" beforehand).
 */
 const SERVER_URL = "serverUrl",
-STATUS_FAIL = "FAIL";
+STATUS_ERROR = "ERROR";
 
 function getUrl() {
   if (localStorage.hasOwnProperty(SERVER_URL)) {
@@ -35,7 +35,7 @@ function showDownService(service) {
 }
 
 function isServiceDown(service) {
-  return (STATUS_FAIL == service.status);
+  return (STATUS_ERROR == service.status);
 }
 
 function showDownServices(data) {
@@ -49,8 +49,8 @@ function showDownServices(data) {
 // Conditionally initialize the options.
 if (!localStorage.isInitialized) {
   localStorage.serverUrl = DEFAULT_SERVER_URL;
-  localStorage.isActivated = DEFAULT_NOTIFICATION_ACTIVE;
-  localStorage.frequency = DEFAULT_NOTIFICATION_FREQUENCY;
+  localStorage.notification_isActivated = DEFAULT_NOTIFICATION_ACTIVE;
+  localStorage.notification_frequency = DEFAULT_NOTIFICATION_FREQUENCY;
 
   localStorage.isInitialized = true;
 }
@@ -63,8 +63,8 @@ if (window.webkitNotifications.checkPermission() == 0) { // 0 is PERMISSION_ALLO
     interval++;
 
     if (
-      JSON.parse(localStorage.isActivated) &&
-      localStorage.frequency <= interval) {
+      JSON.parse(localStorage.notification_isActivated) &&
+      localStorage.notification_frequency <= interval) {
       checkForDownServices();
       interval = 0;
     }

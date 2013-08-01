@@ -3,8 +3,8 @@
 function initOptions(){
 	// Initialize the option controls.
   options.serverUrl.value = (localStorage.serverUrl? localStorage.serverUrl : DEFAULT_SERVER_URL);
-  options.isActivated.checked = (localStorage.isActivated? JSON.parse(localStorage.isActivated) : DEFAULT_NOTIFICATION_ACTIVE);
-  options.frequency.value = (localStorage.frequency? localStorage.frequency : DEFAULT_NOTIFICATION_FREQUENCY);
+  options.isActivated.checked = (localStorage.notification_isActivated? JSON.parse(localStorage.notification_isActivated) : DEFAULT_NOTIFICATION_ACTIVE);
+  options.frequency.value = (localStorage.notification_frequency? localStorage.notification_frequency : DEFAULT_NOTIFICATION_FREQUENCY);
 
   saveChanges();
 }
@@ -54,8 +54,8 @@ function saveChanges(e){
 
 	if(validateOptions()){
 		localStorage.serverUrl = options.serverUrl.value;
- 		localStorage.frequency = options.frequency.value;
- 		localStorage.isActivated = options.isActivated.checked;
+ 		localStorage.notification_frequency = options.frequency.value;
+ 		localStorage.notification_isActivated = options.isActivated.checked;
  		localStorage.isInitialized = true;
 	}
 
