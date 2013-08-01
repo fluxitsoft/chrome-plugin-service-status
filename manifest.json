@@ -1,6 +1,6 @@
 {
-  "name": "Fluxt Services Status",
-  "version": "1.0.0",
+  "name": "FluxIT Service Statuses",
+  "version": "0.0.1",
   "manifest_version": 2,
   "description": "Esta extension permite verificar el estado de los servicios de FluxIT",
   "homepage_url": "http://www.fluxit.com.ar",
