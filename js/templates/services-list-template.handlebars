@@ -3,10 +3,11 @@
 	{{#each services}}
 	<li class="service" title="Click para obtener mas informacion">
 		<i class='status {{toLowerCase this.status}}' title="{{detailedStatus this.status}}"></i>
-		{{this.name}}
+		{{this.name}} [ {{this.time}} {{metricType this.type}} ] 
 		<div class="service-detail hidden">
 			<ul>
-				<li><strong>Estado:</strong> {{detailedStatus this.status}}</li>
+				<li><strong>Service Type:</strong> {{this.type}} </li>
+				<li><strong>Estado:</strong> {{detailedStatus this.status}} </li>
 				{{#if this.message}}
     				<li><strong>Mensaje:</strong> {{this.message}}</li>
   				{{/if}}
