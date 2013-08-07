@@ -60,6 +60,23 @@ Handlebars.registerHelper('detailedStatus', function(value) {
     }
 });
 
+
+Handlebars.registerHelper('metricType', function(type) {
+	detailedMetric = 'test test';
+        switch(type){
+          
+            case 'hudson' : detailedMetric = '% Test';
+            break;
+
+            case 'sonar' : detailedMetric = '% Coverage';
+            break;
+
+            default: detailedMetric = "ms.";
+	}
+	return new Handlebars.SafeString(detailedMetric);
+});
+
+
 Handlebars.registerHelper('constructResource', function(resource) {
     var constructedResource = "";
 
